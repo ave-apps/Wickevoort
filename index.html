@@ -554,36 +554,53 @@ function bouwPins() {
     });
   });
 
+  // Maak één canvas-texture per kleur (cache) — pin = gekleurde cirkel met dunne donkere outline
+  const pinTextures = {};
+  function makePinTexture(hexColor) {
+    if (pinTextures[hexColor]) return pinTextures[hexColor];
+    const size = 64; // texture-resolutie (geen schermgrootte; die wordt door sprite scale bepaald)
+    const cv = document.createElement('canvas');
+    cv.width = cv.height = size;
+    const cx = cv.getContext('2d');
+    const c = size / 2;
+    // Gekleurde fill
+    cx.fillStyle = '#' + hexColor.toString(16).padStart(6, '0');
+    cx.beginPath();
+    cx.arc(c, c, size * 0.42, 0, Math.PI * 2);
+    cx.fill();
+    // Dunne donkere outline
+    cx.strokeStyle = '#0a0a0a';
+    cx.lineWidth = size * 0.06; // ~1.5px op een 30px sprite
+    cx.beginPath();
+    cx.arc(c, c, size * 0.42, 0, Math.PI * 2);
+    cx.stroke();
+    const tex = new THREE.CanvasTexture(cv);
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    pinTextures[hexColor] = tex;
+    return tex;
+  }
+
   DATA.pins.forEach(pin => {
     const kl = pinKleur(pin.categorie);
     const off = pinOffset[pin.id];
     const lat = pin.lat + (off ? off.dlat : 0);
     const lon = pin.lon + (off ? off.dlon : 0);
-    const p = latLon2Bol(lat, lon).multiplyScalar((R+0.025)/R);
+    const p = latLon2Bol(lat, lon).multiplyScalar((R+0.020)/R);
 
-    // Vlakke map-marker: kleine gekleurde disc met dunne donkere outline, tangent aan bol
-    const g = new THREE.Group();
-    g.position.copy(p);
-    g.lookAt(p.clone().multiplyScalar(2));
-    g.userData = {pin, kl, isPinGroup:true};
-
-    // Dunne donkere outline (iets groter, eronder)
-    const outline = new THREE.Mesh(
-      new THREE.CircleGeometry(0.0058, 24),
-      new THREE.MeshBasicMaterial({color:0x0a0a0a, side:THREE.DoubleSide})
-    );
-    outline.position.z = -0.00005;
-    g.add(outline);
-
-    const fill = new THREE.Mesh(
-      new THREE.CircleGeometry(0.0050, 24),
-      new THREE.MeshBasicMaterial({color:kl, side:THREE.DoubleSide})
-    );
-    fill.userData = {pin, kl};
-    g.add(fill);
-
-    pinGrp.add(g);
-    pins3D.push(fill);
+    // Sprite — altijd naar camera gericht, pixelgrootte (vrijwel) onafhankelijk van zoom
+    const mat = new THREE.SpriteMaterial({
+      map: makePinTexture(kl),
+      transparent: true,
+      depthWrite: false,
+    });
+    const sprite = new THREE.Sprite(mat);
+    sprite.position.copy(p);
+    // Sprite-scale in wereldcoördinaten: klein houden zodat pin ~10-12 pixels blijft
+    sprite.scale.set(0.018, 0.018, 1);
+    sprite.userData = {pin, kl};
+    pinGrp.add(sprite);
+    pins3D.push(sprite);
   });
 
   // Bouw relatiebogen (allemaal, maar verborgen)
@@ -678,8 +695,10 @@ function updZI(z) {
 }
 
 function pinSchaal() {
-  const t = Math.max(0, Math.min(1, (camera.position.z - 1.2) / (3.0 - 1.2)));
-  return 0.65 + (1 - t) * 0.40;
+  // Schaal proportioneel met camera-afstand zodat sprites in vrijwel
+  // constante pixelgrootte blijven, ongeacht zoom-niveau.
+  // Basis: bij cz=2.0 (regio) is schaal 1.0; bij dichterbij/verderaf evenredig kleiner/groter.
+  return camera.position.z / 2.0;
 }
 
 // ================================================================
@@ -1144,10 +1163,12 @@ function anim() {
   herteken();
 
   const ps = pinSchaal();
+  const baseScale = 0.018; // basisgrootte in wereldcoördinaten
   pinGrp.children.forEach(obj => {
-    if (obj.userData.isPinGroup) {
-      const isHov = obj.children.includes(hovPin) || obj.children.includes(gesPin);
-      obj.scale.setScalar(ps * (isHov ? 1.30 : 1));
+    if (obj.isSprite) {
+      const isHov = obj === hovPin || obj === gesPin;
+      const f = ps * baseScale * (isHov ? 1.35 : 1);
+      obj.scale.set(f, f, 1);
     }
   });
 
