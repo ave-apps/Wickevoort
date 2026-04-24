@@ -1224,7 +1224,7 @@ function togAlleRelaties() {
 // ================================================================
 let hovCluster = null; // welke cluster-sprite is gehoverd
 const CLUSTER_DREMPEL_PX = 40;
-const ROZET_RADIUS_PX = 38;
+const ROZET_RADIUS_PX = 75;
 
 // Bereken schermpositie van een 3D-punt; geeft null als achter de bol/buiten beeld
 function projecteerNaarScherm(pos3D) {
@@ -1398,10 +1398,12 @@ function updateRozetPosities() {
 
   // Bereken rozet-pin posities op het scherm (cirkel rond center)
   const N = rozetGrp.children.length;
+  const satPosities = []; // bewaar voor lijntjes-tekening
   rozetGrp.children.forEach((s, i) => {
     const hoek = (i / N) * Math.PI * 2 - Math.PI / 2;
     const sx = cx + Math.cos(hoek) * ROZET_RADIUS_PX;
     const sy = cy + Math.sin(hoek) * ROZET_RADIUS_PX;
+    satPosities.push({sx, sy});
     // Unproject schermpositie terug naar 3D
     const ndcX = (sx / w) * 2 - 1;
     const ndcY = -(sy / h) * 2 + 1;
@@ -1411,6 +1413,32 @@ function updateRozetPosities() {
     ndcVec.applyMatrix4(new THREE.Matrix4().copy(wrapper.matrixWorld).invert());
     s.position.copy(ndcVec);
   });
+
+  // Teken dunne verbindingslijntjes van centrum naar elke satelliet,
+  // stoppend net vóór de satelliet en net buiten de cluster-donut.
+  // Lijntjes worden in herteken() gewist; we tekenen ze direct na.
+  if (typeof lx !== 'undefined') {
+    const donutR = 18;  // ongeveer de pixelradius van de cluster-donut
+    const satR = 7;     // ongeveer de pixelradius van een satelliet
+    lx.save();
+    lx.strokeStyle = 'rgba(180, 195, 220, 0.55)';
+    lx.lineWidth = 1.0;
+    satPosities.forEach(({sx, sy}) => {
+      const dx = sx - cx, dy = sy - cy;
+      const len = Math.hypot(dx, dy);
+      if (len < donutR + satR + 4) return;
+      const ux = dx / len, uy = dy / len;
+      const x1 = cx + ux * donutR;
+      const y1 = cy + uy * donutR;
+      const x2 = sx - ux * satR;
+      const y2 = sy - uy * satR;
+      lx.beginPath();
+      lx.moveTo(x1, y1);
+      lx.lineTo(x2, y2);
+      lx.stroke();
+    });
+    lx.restore();
+  }
 }
 
 function sluitCluster() {
