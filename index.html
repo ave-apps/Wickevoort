@@ -536,25 +536,27 @@ function bouwPins() {
     const kl = pinKleur(pin.categorie);
     const p = latLon2Bol(pin.lat, pin.lon).multiplyScalar((R+0.025)/R);
 
-    const kern = new THREE.Mesh(
-      new THREE.SphereGeometry(0.007, 14, 14),
-      new THREE.MeshPhongMaterial({color:kl, emissive:kl, emissiveIntensity:0.45,
-        transparent:true, opacity:0.45})
-    );
-    kern.position.copy(p);
-    kern.userData = {pin, kl, baseEI:0.45, baseOpacity:0.45};
-    pinGrp.add(kern);
-    pins3D.push(kern);
+    // Vlakke map-marker: witte outline-ring + gekleurde fill-disc, tangent aan bol
+    const g = new THREE.Group();
+    g.position.copy(p);
+    g.lookAt(p.clone().multiplyScalar(2));
+    g.userData = {pin, kl, isPinGroup:true};
 
-    // Pulserende ring
-    const ring = new THREE.Mesh(
-      new THREE.RingGeometry(0.008, 0.012, 18),
-      new THREE.MeshBasicMaterial({color:kl, transparent:true, opacity:0.12, side:THREE.DoubleSide})
+    const outline = new THREE.Mesh(
+      new THREE.RingGeometry(0.0076, 0.0108, 32),
+      new THREE.MeshBasicMaterial({color:0xffffff, side:THREE.DoubleSide})
     );
-    ring.position.copy(p);
-    ring.lookAt(p.clone().multiplyScalar(2));
-    ring.userData = {isRing:true, t:Math.random()*Math.PI*2};
-    pinGrp.add(ring);
+    g.add(outline);
+
+    const fill = new THREE.Mesh(
+      new THREE.CircleGeometry(0.0076, 32),
+      new THREE.MeshBasicMaterial({color:kl, side:THREE.DoubleSide})
+    );
+    fill.userData = {pin, kl};
+    g.add(fill);
+
+    pinGrp.add(g);
+    pins3D.push(fill);
   });
 
   // Bouw relatiebogen (allemaal, maar verborgen)
@@ -668,7 +670,7 @@ function labelSchaal() {
     px: Math.round(4 + s * 5),
     lw: 0.5 + s * 1.0,
     lijnLw: 0.4 + s * 0.8,
-    offset: Math.round(13 + s * 10),
+    offset: Math.round(12 + s * 8),
     woorden: s < 0.25 ? 2 : s < 0.6 ? 3 : 99,
     zichtbaar: cz < 2.75,
     stadZichtbaar: cz < 2.35,
@@ -854,10 +856,6 @@ function chkHover(cx, cy) {
   const visibleAnkers = ankers.filter(a => a.visible);
   const hits = rc.intersectObjects([...pins3D, ...visibleAnkers]);
 
-  if (hovPin && hovPin !== gesPin) {
-    hovPin.material.emissiveIntensity = hovPin.userData.baseEI || .45;
-    hovPin.material.opacity = hovPin.userData.baseOpacity || .45;
-  }
   hovPin = null;
   canvas.style.cursor = 'default';
   document.getElementById('btip').classList.remove('on');
@@ -866,8 +864,6 @@ function chkHover(cx, cy) {
   const h = hits[0].object;
   if (h.userData.pin) {
     hovPin = h;
-    h.material.emissiveIntensity = 1.0;
-    h.material.opacity = 0.85;
     canvas.style.cursor = 'pointer';
     toonTooltip(cx, cy, h.userData.pin);
   } else if (h.userData.isBoogAnker) {
@@ -1045,11 +1041,7 @@ function openPinById(id) {
 
 function sluitPanel() {
   document.getElementById('rightPanel').classList.remove('open');
-  if (gesPin) {
-    gesPin.material.emissiveIntensity = gesPin.userData.baseEI || .45;
-    gesPin.material.opacity = gesPin.userData.baseOpacity || .45;
-    gesPin = null;
-  }
+  gesPin = null;
 }
 
 function esc(s) {
@@ -1111,12 +1103,9 @@ function anim() {
 
   const ps = pinSchaal();
   pinGrp.children.forEach(obj => {
-    if (obj.userData.isRing) {
-      obj.userData.t += .025;
-      obj.material.opacity = .04 + .06 * Math.sin(obj.userData.t);
-      obj.scale.setScalar((1 + .08 * Math.sin(obj.userData.t * .7)) * ps);
-    } else if (obj.userData.pin) {
-      obj.scale.setScalar(ps);
+    if (obj.userData.isPinGroup) {
+      const isHov = obj.children.includes(hovPin) || obj.children.includes(gesPin);
+      obj.scale.setScalar(ps * (isHov ? 1.30 : 1));
     }
   });
 

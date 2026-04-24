@@ -3,9 +3,14 @@
     "titel": "Dossier Cruquiushoeve · Landgoed Wickevoort · SEIN",
     "ondertitel": "Hoofdrolspelers sinds de eerste bouwaanlopen (ca. 2005) tot heden",
     "bron": "wickevoort-sein-dossier.docx — Openbare bronnen, aangevuld met gerichte webverificatie april 2026",
-    "versie": "1.0",
+    "versie": "1.2",
     "datum": "2026-04-24",
-    "opmerking_voor_albert": "Alle links zijn geverifieerd tenzij uitdrukkelijk gemarkeerd met '_vermoeden': true. LinkedIn-URL's zijn waar mogelijk geverifieerd (zichtbaar in zoekresultaten). Controleer vóór verzending de als '_vermoeden' gemarkeerde links door er één keer op te klikken."
+    "opmerking_voor_albert": "Alle links zijn geverifieerd tenzij uitdrukkelijk gemarkeerd met '_vermoeden': true. LinkedIn-URL's zijn waar mogelijk geverifieerd (zichtbaar in zoekresultaten). Controleer vóór verzending de als '_vermoeden' gemarkeerde links door er één keer op te klikken.",
+    "changelog": [
+      "v1.0 (24 april 2026): eerste versie",
+      "v1.1 (24 april 2026): LinkedIn-URL's geverifieerd door Albert; Dinant te Brinke (niet 'ten') en Véronique Leenhouwers geregistreerd als per 2023/2025 overgestapt naar Heijmans; diverse website-URL's gecorrigeerd (landlab, korthtielens, dewickevoorterstadsboeren, railov, dewaterlelie)",
+      "v1.2 (24 april 2026): ECLI-correcties — bestemmingsplan Cruquius Wickevoort is ECLI:NL:RVS:2019:332 (niet :330); Cruquius-Noord-uitspraak van 28 mei 2014 is ECLI:NL:RVS:2014:1933 (stond als placeholder 'ECLI:NL:RVS:2014:xxxx' in dossier)"
+    ]
   },
   "pins": [
     {
@@ -229,13 +234,13 @@
       "lon": 5.1059,
       "periode": "tot ca. 2020",
       "urls": {
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/peter-heuvelink/"
+        "linkedin": "https://www.linkedin.com/in/peter-heuvelink-1325353/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.2"
       ],
-      "kernfeit": "CEO van AM ten tijde van KRO-geschil 2020; LinkedIn-URL is vermoeden — graag verifiëren",
+      "kernfeit": "CEO van AM ten tijde van KRO-geschil 2020",
       "dossier_ankers": [
         {
           "paragraaf": "8.2",
@@ -246,17 +251,18 @@
     {
       "id": "ten-brinke",
       "categorie": "persoon-ontwikkelaar",
-      "naam": "Dinant ten Brinke",
-      "rol": "Directievoorzitter BAM Wonen",
-      "locatie": "BAM, Bunnik",
-      "lat": 52.0672,
-      "lon": 5.1926,
-      "periode": "doorlopend bij BAM Wonen (huidige functie)",
+      "naam": "Dinant te Brinke",
+      "rol": "Algemeen Directeur Heijmans Woningbouw (okt 2023–heden); daarvoor Directievoorzitter BAM Wonen (jun 2019–sep 2023), daarvoor BAM Wonen (okt 1997–jun 2019)",
+      "locatie": "Heijmans, Rosmalen",
+      "lat": 51.712,
+      "lon": 5.363,
+      "periode": "BAM: okt 1997–sep 2023 · Heijmans: okt 2023–heden",
       "urls": {
-        "website_bam": "https://www.bam.com/nl",
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/dinant-ten-brinke/"
+        "linkedin": "https://www.linkedin.com/in/dinant-te-brinke/",
+        "website_heijmans": "https://www.heijmans.nl/nl/",
+        "website_bam": "https://www.bam.com/nl"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.2"
       ],
@@ -265,25 +271,27 @@
           "paragraaf": "8.2",
           "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
         }
-      ]
+      ],
+      "kernfeit": "Eerst doorlopend bij BAM Wonen (1997–2023); overgestapt naar Heijmans als Algemeen Directeur Woningbouw per oktober 2023 — ná de Wickevoort-contractfase waarin BAM Wonen de co-maker was."
     },
     {
       "id": "leenhouwers",
       "categorie": "persoon-ontwikkelaar",
       "naam": "Véronique Leenhouwers",
-      "rol": "Commercieel directeur BAM Wonen Noordwest",
-      "locatie": "BAM, Bunnik",
-      "lat": 52.0672,
-      "lon": 5.1926,
-      "periode": "2024–heden",
+      "rol": "Manager Klant en Markt Horizon bij Heijmans (jan 2025–heden); daarvoor Commercieel Directeur BAM Wonen Noordwest (jan 2020–jan 2025)",
+      "locatie": "Heijmans, Rosmalen",
+      "lat": 51.712,
+      "lon": 5.363,
+      "periode": "BAM: jan 2020–jan 2025 · Heijmans: jan 2025–heden",
       "urls": {
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/veronique-leenhouwers/"
+        "linkedin": "https://www.linkedin.com/in/veroniqueleenhouwers",
+        "website_heijmans": "https://www.heijmans.nl/nl/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.2"
       ],
-      "kernfeit": "Tekende 2024 bouwteamovereenkomst Hoofdgebouw met Eigen Haard",
+      "kernfeit": "Tekende 2024 als Commercieel Directeur BAM Wonen de bouwteamovereenkomst Hoofdgebouw met Eigen Haard — verhuisde vervolgens januari 2025 naar Heijmans, enkele maanden na Dinant te Brinke",
       "dossier_ankers": [
         {
           "paragraaf": "8.2",
@@ -295,15 +303,16 @@
       "id": "van-kleef",
       "categorie": "persoon-ontwikkelaar",
       "naam": "Richard van Kleef",
-      "rol": "Directeur BAM Wonen",
+      "rol": "Commercieel Directeur BAM Wonen Utrecht en Amsterdam",
       "locatie": "BAM, Bunnik",
       "lat": 52.0672,
       "lon": 5.1926,
       "periode": "zichtbaar 2025 (startbouw Hoofdgebouw)",
       "urls": {
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/richard-van-kleef/"
+        "linkedin": "https://www.linkedin.com/in/richardvankleef",
+        "email": "mailto:richardvankleef75@gmail.com"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.2"
       ],
@@ -348,15 +357,15 @@
       "id": "huntjens",
       "categorie": "persoon-corporatie",
       "naam": "Anke Huntjens",
-      "rol": "Bestuurder Eigen Haard (2025)",
+      "rol": "Bestuurder Eigen Haard (jan 2023–heden)",
       "locatie": "Eigen Haard, Amsterdam",
       "lat": 52.3968,
       "lon": 4.8376,
-      "periode": "2025",
+      "periode": "jan 2023 – heden",
       "urls": {
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/anke-huntjens/"
+        "linkedin": "https://www.linkedin.com/in/anke-huntjens-42b865a"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.3"
       ],
@@ -375,11 +384,11 @@
       "locatie": "Eigen Haard, Amsterdam",
       "lat": 52.3968,
       "lon": 4.8376,
-      "periode": "2024–heden",
+      "periode": "aug 2022 – heden",
       "urls": {
-        "_vermoeden_linkedin": "https://www.linkedin.com/in/nicole-de-vrij/"
+        "linkedin": "https://www.linkedin.com/in/nicole-de-vrij-b9078b6"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "8.3"
       ],
@@ -514,9 +523,9 @@
       "lon": 4.8952,
       "periode": "Wickevoort-masterplan",
       "urls": {
-        "_vermoeden_website": "https://www.landlab.nl"
+        "website": "https://landlab.nl/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "4.5",
         "8.4"
@@ -542,9 +551,9 @@
       "lon": 4.9041,
       "periode": "2024–2026",
       "urls": {
-        "_vermoeden_website": "https://www.korthtielens.nl"
+        "website": "https://korthtielens.nl/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "4.5",
         "8.4"
@@ -788,11 +797,12 @@
       "locatie": "Kneuterdijk 22, 2514 EN Den Haag",
       "lat": 52.0795,
       "lon": 4.3109,
-      "periode": "uitspraken 2014, 2019, 2022",
+      "periode": "uitspraken 28 mei 2014, 6 februari 2019, 23 februari 2022",
       "urls": {
         "website": "https://www.raadvanstate.nl",
-        "uitspraak_bestemmingsplan_2019": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2019:330",
-        "uitspraak_csz_2022": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2022:558"
+        "uitspraak_bestemmingsplan_2019": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2019:332",
+        "uitspraak_csz_2022": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2022:558",
+        "uitspraak_cruquius_noord_2014": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2014:1933"
       },
       "vindplaats_in_dossier": [
         "7.1",
@@ -824,9 +834,9 @@
       "lon": 4.6436,
       "periode": "beroepsprocedures 2013, 2018",
       "urls": {
-        "_vermoeden_website": "https://www.hgcgolf.nl"
+        "website": "https://www.hgcgolf.nl/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "7.1",
         "7.2",
@@ -913,9 +923,10 @@
       "lon": 4.641,
       "periode": "juli 2018 — heden",
       "urls": {
-        "_vermoeden_website": "https://www.wickevoorterstadsboeren.nl"
+        "website": "https://dewickevoorterstadsboeren.nl/",
+        "producten": "https://dewickevoorterstadsboeren.nl/category/producten/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "5.2",
         "8.6"
@@ -996,9 +1007,9 @@
       "lon": 5.1586,
       "periode": "mei–juli 2021",
       "urls": {
-        "_vermoeden_website": "https://www.spov.nl"
+        "website": "https://railov.nl/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "4.5",
         "8.3"
@@ -1051,9 +1062,9 @@
       "lon": 4.6415,
       "periode": "doorlopend",
       "urls": {
-        "_vermoeden_website": "https://www.waterlelie.nl"
+        "website": "https://www.dewaterlelie.net/"
       },
-      "_vermoeden": true,
+      "_vermoeden": false,
       "vindplaats_in_dossier": [
         "openstaande vraag 11"
       ],
