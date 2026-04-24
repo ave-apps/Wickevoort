@@ -1,0 +1,1373 @@
+{
+  "dataset": {
+    "titel": "Dossier Cruquiushoeve · Landgoed Wickevoort · SEIN",
+    "ondertitel": "Hoofdrolspelers sinds de eerste bouwaanlopen (ca. 2005) tot heden",
+    "bron": "wickevoort-sein-dossier.docx — Openbare bronnen, aangevuld met gerichte webverificatie april 2026",
+    "versie": "1.0",
+    "datum": "2026-04-24",
+    "opmerking_voor_albert": "Alle links zijn geverifieerd tenzij uitdrukkelijk gemarkeerd met '_vermoeden': true. LinkedIn-URL's zijn waar mogelijk geverifieerd (zichtbaar in zoekresultaten). Controleer vóór verzending de als '_vermoeden' gemarkeerde links door er één keer op te klikken."
+  },
+  "pins": [
+    {
+      "id": "sein-hoofdkantoor",
+      "categorie": "organisatie-zorg",
+      "naam": "Stichting Epilepsie Instellingen Nederland (SEIN)",
+      "rol": "Opdrachtgever Cruquiushoeve-herontwikkeling · grondeigenaar",
+      "locatie": "Achterweg 5, 2103 SW Heemstede",
+      "lat": 52.3361,
+      "lon": 4.6194,
+      "periode": "doorlopend — rechtsopvolger Christelijke Vereniging (1882)",
+      "urls": {
+        "website": "https://www.sein.nl",
+        "bestuur": "https://www.sein.nl/over-sein/organisatie-en-bestuur",
+        "jaarverslagen": "https://www.jaarverslagenzorg.nl"
+      },
+      "vindplaats_in_dossier": [
+        "2.2",
+        "2.3",
+        "4.1",
+        "8.1"
+      ],
+      "kernfeit": "KvK 41222646 · RSIN 001 027 827 · vertegenwoordigd door Raad van Bestuur · private foundation (geen overheidsinstelling)",
+      "dossier_ankers": [
+        {
+          "paragraaf": "2.2",
+          "href": "wickevoort-dossier.html#h-2-2-de-christelijk-diaconale-oorsprong-van-sein-18741966"
+        },
+        {
+          "paragraaf": "2.3",
+          "href": "wickevoort-dossier.html#h-2-3-verhuizing-naar-de-cruquiushoeve-eind-jaren-vijftig-1970"
+        },
+        {
+          "paragraaf": "4.1",
+          "href": "wickevoort-dossier.html#h-4-1-eigenaarschap-van-de-grond"
+        },
+        {
+          "paragraaf": "8.1",
+          "href": "wickevoort-dossier.html#h-8-1-sein-raad-van-bestuur-vastgoed-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "sein-cruquius",
+      "categorie": "locatie",
+      "naam": "SEIN Cruquiushoeve",
+      "rol": "Terrein Wickevoort-ontwikkeling · ca. 57 ha oorspronkelijk",
+      "locatie": "Spieringweg 801, Cruquius (Haarlemmermeer)",
+      "lat": 52.3424,
+      "lon": 4.6405,
+      "periode": "eind jaren '50 — heden",
+      "urls": {
+        "website": "https://www.sein.nl"
+      },
+      "vindplaats_in_dossier": [
+        "2.3",
+        "3.1",
+        "4.1"
+      ],
+      "kernfeit": "Landschapsontwerp Hans Warnau (jaren '60) · opening door koningin Juliana (1970) · nieuwbouw geopend door koningin Beatrix (3 september 2010)",
+      "dossier_ankers": [
+        {
+          "paragraaf": "2.3",
+          "href": "wickevoort-dossier.html#h-2-3-verhuizing-naar-de-cruquiushoeve-eind-jaren-vijftig-1970"
+        },
+        {
+          "paragraaf": "3.1",
+          "href": "wickevoort-dossier.html#h-3-1-aanleiding-en-programma"
+        },
+        {
+          "paragraaf": "4.1",
+          "href": "wickevoort-dossier.html#h-4-1-eigenaarschap-van-de-grond"
+        }
+      ]
+    },
+    {
+      "id": "barzilay",
+      "categorie": "persoon-opdrachtgever",
+      "naam": "Jean Willem Barzilay",
+      "rol": "Voorzitter Raad van Bestuur SEIN",
+      "locatie": "SEIN, Heemstede",
+      "lat": 52.3361,
+      "lon": 4.6194,
+      "periode": "2005(?)–heden (zichtbaar in publicaties vanaf 2008)",
+      "urls": {
+        "functie": "https://www.sein.nl/nl/over-sein/personalia-bestuur/raad-van-bestuur-jwb/",
+        "bam_persbericht_2008": "https://www.bam.com/nl/pers/persberichten/sein-en-bam-tekenen-groot-design-build-contract"
+      },
+      "vindplaats_in_dossier": [
+        "2.2",
+        "4.3",
+        "8.1",
+        "10"
+      ],
+      "kernfeit": "Tekende 26 september 2008 met J.G. Nelis (BAM) design-build-contract van ca. € 36 miljoen incl. btw · tekende 14 februari 2014 samenwerkingsovereenkomst Wickevoort · tekende 5 april 2024 memorandum samenwerking EpilepsieNL/Kempenhaeghe",
+      "dossier_ankers": [
+        {
+          "paragraaf": "2.2",
+          "href": "wickevoort-dossier.html#h-2-2-de-christelijk-diaconale-oorsprong-van-sein-18741966"
+        },
+        {
+          "paragraaf": "4.3",
+          "href": "wickevoort-dossier.html#h-4-3-tender-en-selectie-am-eigen-haard-20112014"
+        },
+        {
+          "paragraaf": "8.1",
+          "href": "wickevoort-dossier.html#h-8-1-sein-raad-van-bestuur-vastgoed-en-adviseurs"
+        },
+        {
+          "paragraaf": "10",
+          "href": "wickevoort-dossier.html#h-10-tijdlijn-in-één-oogopslag"
+        }
+      ]
+    },
+    {
+      "id": "slaager",
+      "categorie": "persoon-opdrachtgever",
+      "naam": "Martin Slaager",
+      "rol": "Directeur Bestuurs- en Organisatieondersteuning SEIN (eerder: directeur/manager Vastgoed, dan manager Facilitair & Vastgoed)",
+      "locatie": "SEIN, Heemstede",
+      "lat": 52.3361,
+      "lon": 4.6194,
+      "periode": "2010(?)–heden",
+      "urls": {
+        "linkedin": "https://www.linkedin.com/in/martin-slaager-abba394/",
+        "subsidie_mooi_nederland_2010": "https://www.sein.nl/nl/over-sein/mediacontacten/persberichten-2010/persbericht7-subsidiecruquiushoeve/"
+      },
+      "vindplaats_in_dossier": [
+        "6.3",
+        "8.1"
+      ],
+      "kernfeit": "Ontving 4 november 2010 subsidie Mooi Nederland van DG Chris Kuipers (VROM) · tekende april 2020 procedureovereenkomst met AM · functie verschuift geleidelijk van vastgoed naar bestuursorganisatie",
+      "dossier_ankers": [
+        {
+          "paragraaf": "6.3",
+          "href": "wickevoort-dossier.html#h-6-3-financiële-bestemming-van-de-opbrengst"
+        },
+        {
+          "paragraaf": "8.1",
+          "href": "wickevoort-dossier.html#h-8-1-sein-raad-van-bestuur-vastgoed-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "am-hoofdkantoor",
+      "categorie": "organisatie-ontwikkelaar",
+      "naam": "AM Gebiedsontwikkeling",
+      "rol": "Gebiedsontwikkelaar Wickevoort · dochter Koninklijke BAM Groep",
+      "locatie": "Ptolemaeuslaan 80, 3528 BP Utrecht",
+      "lat": 52.0705,
+      "lon": 5.1059,
+      "periode": "februari 2014 — heden",
+      "urls": {
+        "website": "https://www.am.nl",
+        "project_wickevoort": "https://www.am.nl/projecten/landgoed-wickevoort/",
+        "linkedin_bedrijf": "https://www.linkedin.com/company/am-gebiedsontwikkeling/"
+      },
+      "vindplaats_in_dossier": [
+        "4.3",
+        "4.5",
+        "5.1",
+        "8.2"
+      ],
+      "kernfeit": "Sinds 2010 100% dochter van Koninklijke BAM Groep · centrale directie Huikeshoven/Bolk/Van Miltenburg/Ter Beek · sinds 2024 ook 'Woonveld Bos' in presale",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.3",
+          "href": "wickevoort-dossier.html#h-4-3-tender-en-selectie-am-eigen-haard-20112014"
+        },
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "5.1",
+          "href": "wickevoort-dossier.html#h-5-1-omgekeerde-integratie-als-concept"
+        },
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "huikeshoven",
+      "categorie": "persoon-ontwikkelaar",
+      "naam": "Ronald R. Huikeshoven",
+      "rol": "Directievoorzitter AM Gebiedsontwikkeling · Voorzitter NEPROM (sinds 3 juli 2024)",
+      "locatie": "AM, Utrecht",
+      "lat": 52.0705,
+      "lon": 5.1059,
+      "periode": "2007–heden bij AM (17 jaar); voor Wickevoort sinds ca. 2012",
+      "urls": {
+        "linkedin": "https://www.linkedin.com/in/ronald-huikeshoven-5457106/",
+        "neprom_benoeming": "https://www.neprom.nl/artikel/ronald-huikeshoven-nieuwe-voorzitter-neprom/2483",
+        "interview_propertynl_2024": "https://propertynl.com/Nieuws/Ronald-Huikeshoven-(AM-Neprom)--Hoop-gevestigd-op-Mona-Keijzer/33f6cd64-05f0-4351-bfb2-6b4ba1f76f54"
+      },
+      "vindplaats_in_dossier": [
+        "5.1",
+        "8.2"
+      ],
+      "kernfeit": "MRE (Amsterdam School of Real Estate, 1992) · directeur AM Noordwest sinds 2007 · voorzitter centrale directie sinds 1 juli 2016 · verantwoordelijk voor Weespersluis, Bajeskwartier, Wickevoort · citaat 2014: 'Wij bouwen in hun achtertuin. Zij moeten inschikken om dit mogelijk te maken.'",
+      "dossier_ankers": [
+        {
+          "paragraaf": "5.1",
+          "href": "wickevoort-dossier.html#h-5-1-omgekeerde-integratie-als-concept"
+        },
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "heuvelink",
+      "categorie": "persoon-ontwikkelaar",
+      "naam": "Peter Heuvelink",
+      "rol": "Voormalig CEO AM (2020)",
+      "locatie": "AM, Utrecht",
+      "lat": 52.0705,
+      "lon": 5.1059,
+      "periode": "tot ca. 2020",
+      "urls": {
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/peter-heuvelink/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.2"
+      ],
+      "kernfeit": "CEO van AM ten tijde van KRO-geschil 2020; LinkedIn-URL is vermoeden — graag verifiëren",
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "ten-brinke",
+      "categorie": "persoon-ontwikkelaar",
+      "naam": "Dinant ten Brinke",
+      "rol": "Directievoorzitter BAM Wonen",
+      "locatie": "BAM, Bunnik",
+      "lat": 52.0672,
+      "lon": 5.1926,
+      "periode": "doorlopend bij BAM Wonen (huidige functie)",
+      "urls": {
+        "website_bam": "https://www.bam.com/nl",
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/dinant-ten-brinke/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.2"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "leenhouwers",
+      "categorie": "persoon-ontwikkelaar",
+      "naam": "Véronique Leenhouwers",
+      "rol": "Commercieel directeur BAM Wonen Noordwest",
+      "locatie": "BAM, Bunnik",
+      "lat": 52.0672,
+      "lon": 5.1926,
+      "periode": "2024–heden",
+      "urls": {
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/veronique-leenhouwers/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.2"
+      ],
+      "kernfeit": "Tekende 2024 bouwteamovereenkomst Hoofdgebouw met Eigen Haard",
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "van-kleef",
+      "categorie": "persoon-ontwikkelaar",
+      "naam": "Richard van Kleef",
+      "rol": "Directeur BAM Wonen",
+      "locatie": "BAM, Bunnik",
+      "lat": 52.0672,
+      "lon": 5.1926,
+      "periode": "zichtbaar 2025 (startbouw Hoofdgebouw)",
+      "urls": {
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/richard-van-kleef/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.2"
+      ],
+      "kernfeit": "Aanwezig bij startbouw Hoofdgebouw 29 januari 2025",
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.2",
+          "href": "wickevoort-dossier.html#h-8-2-am-bam-directie-en-projectleiding"
+        }
+      ]
+    },
+    {
+      "id": "eigen-haard-hoofdkantoor",
+      "categorie": "organisatie-corporatie",
+      "naam": "Eigen Haard",
+      "rol": "Woningcorporatie · ca. 255 sociale huurwoningen in Wickevoort",
+      "locatie": "Arlandaweg 88, 1043 HP Amsterdam",
+      "lat": 52.3968,
+      "lon": 4.8376,
+      "periode": "februari 2014 — heden",
+      "urls": {
+        "website": "https://www.eigenhaard.nl",
+        "projectpagina_wickevoort": "https://www.eigenhaard.nl/projecten/landgoed-wickevoort",
+        "linkedin_bedrijf": "https://www.linkedin.com/company/eigen-haard/"
+      },
+      "vindplaats_in_dossier": [
+        "4.3",
+        "8.3"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.3",
+          "href": "wickevoort-dossier.html#h-4-3-tender-en-selectie-am-eigen-haard-20112014"
+        },
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        }
+      ]
+    },
+    {
+      "id": "huntjens",
+      "categorie": "persoon-corporatie",
+      "naam": "Anke Huntjens",
+      "rol": "Bestuurder Eigen Haard (2025)",
+      "locatie": "Eigen Haard, Amsterdam",
+      "lat": 52.3968,
+      "lon": 4.8376,
+      "periode": "2025",
+      "urls": {
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/anke-huntjens/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.3"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        }
+      ]
+    },
+    {
+      "id": "de-vrij",
+      "categorie": "persoon-corporatie",
+      "naam": "Nicole de Vrij",
+      "rol": "Directeur Ontwikkeling en Zakelijk Beheer Eigen Haard",
+      "locatie": "Eigen Haard, Amsterdam",
+      "lat": 52.3968,
+      "lon": 4.8376,
+      "periode": "2024–heden",
+      "urls": {
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/nicole-de-vrij/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.3"
+      ],
+      "kernfeit": "Tekende 2024 bouwteamovereenkomst Hoofdgebouw met BAM Wonen",
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        }
+      ]
+    },
+    {
+      "id": "venhoevencs",
+      "categorie": "organisatie-architect",
+      "naam": "VenhoevenCS architecture+urbanism",
+      "rol": "Stedenbouwkundig bureau · Masterplan 2009 · supervisor Wickevoort · architect 'De Erven'",
+      "locatie": "Hoogte Kadijk 143-F1, 1018 BH Amsterdam",
+      "lat": 52.3713,
+      "lon": 4.9204,
+      "periode": "2009 — heden",
+      "urls": {
+        "website": "https://venhoevencs.nl",
+        "project_wickevoort": "https://venhoevencs.nl/projects/wickevoort-estate/",
+        "linkedin_bedrijf": "https://www.linkedin.com/company/venhoevencs-architects"
+      },
+      "vindplaats_in_dossier": [
+        "4.2",
+        "4.5",
+        "8.4"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.2",
+          "href": "wickevoort-dossier.html#h-4-2-nota-van-uitgangspunten-2006-en-masterplan-2009"
+        },
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "venhoeven",
+      "categorie": "persoon-architect",
+      "naam": "Ton Venhoeven",
+      "rol": "Oprichter VenhoevenCS · supervisor Wickevoort",
+      "locatie": "VenhoevenCS, Amsterdam",
+      "lat": 52.3713,
+      "lon": 4.9204,
+      "periode": "2009 — heden",
+      "urls": {
+        "linkedin": "https://www.linkedin.com/in/ton-venhoeven-39265411/",
+        "website": "https://venhoevencs.nl"
+      },
+      "vindplaats_in_dossier": [
+        "4.2",
+        "4.5",
+        "8.4"
+      ],
+      "kernfeit": "Oprichter bureau in 1995 · Masterplan Cruquiushoeve 2009 · begeleidt deelgebiedsarchitecten",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.2",
+          "href": "wickevoort-dossier.html#h-4-2-nota-van-uitgangspunten-2006-en-masterplan-2009"
+        },
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "studiowa",
+      "categorie": "organisatie-architect",
+      "naam": "studioWA!",
+      "rol": "Architect nieuwbouw SEIN Cruquiushoeve 2010",
+      "locatie": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.9041,
+      "periode": "2005–2010",
+      "urls": {
+        "_tegenspraak": "Dossier noemt studioWA! / Martien van Wandelen; BAM-persbericht 26 september 2008 noemt 'Muidens architectenbureau Wentink Architekten'. Mogelijk twee verschillende ontwerpfasen of een organisatorische overgang. Graag nader onderzoek."
+      },
+      "vindplaats_in_dossier": [
+        "3.2",
+        "8.4"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "3.2",
+          "href": "wickevoort-dossier.html#h-3-2-bouwteam-architect-aannemer"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "wentink",
+      "categorie": "organisatie-architect",
+      "naam": "Wentink Architekten",
+      "rol": "Architect nieuwbouw SEIN 2010 (volgens BAM-persbericht 2008)",
+      "locatie": "Muiden",
+      "lat": 52.3315,
+      "lon": 5.0673,
+      "periode": "2008–2010 (contracttekening 26 september 2008)",
+      "urls": {
+        "bam_persbericht": "https://www.bam.com/nl/pers/persberichten/sein-en-bam-tekenen-groot-design-build-contract"
+      },
+      "vindplaats_in_dossier": [
+        "niet in hoofdstuk 3.2; komt alleen uit BAM-persbericht"
+      ],
+      "kernfeit": "Volgens BAM-persbericht 26 september 2008: 'Muidens architectenbureau Wentink Architekten' ontwierp de SEIN-nieuwbouw — dit strookt niet met 'studioWA!/Martien van Wandelen' in het dossier. Openstaande discrepantie.",
+      "dossier_ankers": []
+    },
+    {
+      "id": "landlab",
+      "categorie": "organisatie-architect",
+      "naam": "Landlab",
+      "rol": "Landschapsarchitect Wickevoort (met VenhoevenCS)",
+      "locatie": "Amsterdam",
+      "lat": 52.3702,
+      "lon": 4.8952,
+      "periode": "Wickevoort-masterplan",
+      "urls": {
+        "_vermoeden_website": "https://www.landlab.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "4.5",
+        "8.4"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "korth-tielens",
+      "categorie": "organisatie-architect",
+      "naam": "Korth Tielens Architecten",
+      "rol": "Architect Hoofdgebouw Wickevoort (93 sociale huurwoningen)",
+      "locatie": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.9041,
+      "periode": "2024–2026",
+      "urls": {
+        "_vermoeden_website": "https://www.korthtielens.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "4.5",
+        "8.4"
+      ],
+      "kernfeit": "Startbouw Hoofdgebouw 29 januari 2025 · oplevering verwacht zomer 2026 (precies als Albert SEIN verlaat + enkele weken)",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "finch-buildings",
+      "categorie": "organisatie-architect",
+      "naam": "Finch Buildings",
+      "rol": "Modulaire houtbouw · SEIN Special (8 studio's Groningerlaan, 2024)",
+      "locatie": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.9041,
+      "periode": "2024",
+      "urls": {
+        "website": "https://finchbuildings.com",
+        "project_wickevoort": "https://finchbuildings.com/en/wickevoort/"
+      },
+      "vindplaats_in_dossier": [
+        "3.4",
+        "4.5",
+        "8.4"
+      ],
+      "kernfeit": "Samen met De Groot Vroomshoop — medewerkerswoningen SEIN",
+      "dossier_ankers": [
+        {
+          "paragraaf": "3.4",
+          "href": "wickevoort-dossier.html#h-3-4-vervolgbouw-sein-na-2010"
+        },
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "at-osborne",
+      "categorie": "organisatie-adviseur",
+      "naam": "AT Osborne",
+      "rol": "Procesbegeleiding tender 2012–2013 · KRO-advisering",
+      "locatie": "J.F. Kennedylaan 100, 3741 EH Baarn",
+      "lat": 52.2124,
+      "lon": 5.284,
+      "periode": "2011 — doorlopend bij KRO-trajecten",
+      "urls": {
+        "website": "https://www.atosborne.nl"
+      },
+      "vindplaats_in_dossier": [
+        "4.3",
+        "6.2",
+        "8.4"
+      ],
+      "kernfeit": "Droge noteerder van de fundamentele paradox: CSZ keurt in 2020 af wat het in 2013 zelf had goedgekeurd",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.3",
+          "href": "wickevoort-dossier.html#h-4-3-tender-en-selectie-am-eigen-haard-20112014"
+        },
+        {
+          "paragraaf": "6.2",
+          "href": "wickevoort-dossier.html#h-6-2-de-koop-realisatie-overeenkomst-en-het-geschil-van-20192022"
+        },
+        {
+          "paragraaf": "8.4",
+          "href": "wickevoort-dossier.html#h-8-4-architecten-landschapsarchitecten-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "haarlemmermeer",
+      "categorie": "organisatie-overheid",
+      "naam": "Gemeente Haarlemmermeer",
+      "rol": "Bevoegd gezag bestemmingsplan · Nota van Uitgangspunten 2006",
+      "locatie": "Raadhuisplein 1, 2132 TZ Hoofddorp",
+      "lat": 52.3026,
+      "lon": 4.6892,
+      "periode": "2006 — heden",
+      "urls": {
+        "website": "https://haarlemmermeergemeente.nl",
+        "college": "https://haarlemmermeergemeente.nl/college-van-burgemeester-en-wethouders",
+        "raadsinformatie": "https://haarlemmermeer.bestuurlijkeinformatie.nl"
+      },
+      "vindplaats_in_dossier": [
+        "4.2",
+        "4.4",
+        "8.5"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.2",
+          "href": "wickevoort-dossier.html#h-4-2-nota-van-uitgangspunten-2006-en-masterplan-2009"
+        },
+        {
+          "paragraaf": "4.4",
+          "href": "wickevoort-dossier.html#h-4-4-bestemmingsplan-cruquius-wickevoort-2018-en-herzieningen"
+        },
+        {
+          "paragraaf": "8.5",
+          "href": "wickevoort-dossier.html#h-8-5-gemeente-haarlemmermeer-wethouders-en-projectstructuur"
+        }
+      ]
+    },
+    {
+      "id": "nobel",
+      "categorie": "persoon-overheid",
+      "naam": "Jurgen Nobel",
+      "rol": "Voormalig wethouder Woningbouw Haarlemmermeer (tot 2 juli 2024) · nu Staatssecretaris Participatie en Integratie",
+      "locatie": "Ministerie SZW, Den Haag (sinds 2 juli 2024)",
+      "lat": 52.0789,
+      "lon": 4.3146,
+      "periode": "wethouder ca. 2018–2024; staatssecretaris sinds 2 juli 2024",
+      "urls": {
+        "vvd_profiel": "https://haarlemmermeer.vvd.nl",
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/jurgen-nobel/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "4.5",
+        "8.5"
+      ],
+      "kernfeit": "Reikte 28 mei 2021 eerste sleutel uit · opende SEIN Special 2024 · tekende woningbouwakkoord Cruquius-Zwaanshoek 2020 · nu lid kabinet-Schoof",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.5",
+          "href": "wickevoort-dossier.html#h-8-5-gemeente-haarlemmermeer-wethouders-en-projectstructuur"
+        }
+      ]
+    },
+    {
+      "id": "van-straten",
+      "categorie": "persoon-overheid",
+      "naam": "Beryl van Straten",
+      "rol": "Wethouder Woningbouw Haarlemmermeer (sinds 4 juli 2024, VVD)",
+      "locatie": "Gemeentehuis, Hoofddorp",
+      "lat": 52.3026,
+      "lon": 4.6892,
+      "periode": "sinds 4 juli 2024",
+      "urls": {
+        "profiel_gemeente": "https://haarlemmermeergemeente.nl/college-van-burgemeester-en-wethouders/wethouder-beryl-van-straten",
+        "vvd": "https://haarlemmermeer.vvd.nl/mensen/10546/beryl-van-straten",
+        "_vermoeden_linkedin": "https://www.linkedin.com/in/beryl-van-straten/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "4.5",
+        "8.5"
+      ],
+      "kernfeit": "Aanwezig bij startbouw Hoofdgebouw 29 januari 2025 · portefeuille: Financiën, Woningbouw, Ruimtelijke Ontwikkelingen, Grondzaken",
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.5",
+          "href": "wickevoort-dossier.html#h-8-5-gemeente-haarlemmermeer-wethouders-en-projectstructuur"
+        }
+      ]
+    },
+    {
+      "id": "sedee",
+      "categorie": "persoon-overheid",
+      "naam": "Mariëtte Sedee-Schuitemaker",
+      "rol": "Wethouder Haarlemmermeer · hees regenboogvlag SEIN Cruquius (2024)",
+      "locatie": "Gemeentehuis, Hoofddorp",
+      "lat": 52.3026,
+      "lon": 4.6892,
+      "periode": "huidige collegeperiode",
+      "urls": {
+        "_vermoeden_profiel": "https://haarlemmermeergemeente.nl/college-van-burgemeester-en-wethouders/"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "8.5 (impliciet — mogelijk in 'openstaande vraag wachtgeldregeling')"
+      ],
+      "kernfeit": "Door Henk van Hulsel mogelijk bedoeld als een van de 'aanjagers met wachtgeldregeling' — graag verifiëren",
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.5",
+          "href": "wickevoort-dossier.html#h-8-5-gemeente-haarlemmermeer-wethouders-en-projectstructuur"
+        }
+      ]
+    },
+    {
+      "id": "csz",
+      "categorie": "organisatie-toezicht",
+      "naam": "College sanering zorginstellingen (CSZ)",
+      "rol": "Zelfstandig bestuursorgaan onder VWS · toezicht op vervreemding zorgvastgoed",
+      "locatie": "Newtonlaan 115, 3584 BH Utrecht",
+      "lat": 52.0833,
+      "lon": 5.1586,
+      "periode": "SEIN-melding september 1999 — doorlopend",
+      "urls": {
+        "website": "https://www.collegesanering.nl"
+      },
+      "vindplaats_in_dossier": [
+        "6.1",
+        "6.2",
+        "7.3"
+      ],
+      "kernfeit": "Weigerde 14 januari 2020 goedkeuring grondprijsmethodiek — terwijl die methodiek overeenstemde met de door CSZ zelf goedgekeurde raamovereenkomst uit 2013 · RvS-uitspraak 23 februari 2022 (ECLI:NL:RVS:2022:558): CSZ-besluit 18 augustus 2020 onvoldoende gemotiveerd",
+      "dossier_ankers": [
+        {
+          "paragraaf": "6.1",
+          "href": "wickevoort-dossier.html#h-6-1-wet-toelating-zorginstellingen-en-art-18-wtzi"
+        },
+        {
+          "paragraaf": "6.2",
+          "href": "wickevoort-dossier.html#h-6-2-de-koop-realisatie-overeenkomst-en-het-geschil-van-20192022"
+        },
+        {
+          "paragraaf": "7.3",
+          "href": "wickevoort-dossier.html#h-7-3-csz-geschil-20202022-eclinlrvs2022558"
+        }
+      ]
+    },
+    {
+      "id": "rvs",
+      "categorie": "organisatie-rechter",
+      "naam": "Raad van State · Afdeling bestuursrechtspraak",
+      "rol": "Hoogste bestuursrechter in beroep bestemmingsplan en CSZ-besluit",
+      "locatie": "Kneuterdijk 22, 2514 EN Den Haag",
+      "lat": 52.0795,
+      "lon": 4.3109,
+      "periode": "uitspraken 2014, 2019, 2022",
+      "urls": {
+        "website": "https://www.raadvanstate.nl",
+        "uitspraak_bestemmingsplan_2019": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2019:330",
+        "uitspraak_csz_2022": "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RVS:2022:558"
+      },
+      "vindplaats_in_dossier": [
+        "7.1",
+        "7.2",
+        "7.3"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "7.1",
+          "href": "wickevoort-dossier.html#h-7-1-cruquius-noord-2013-eclinlrvs2014xxxx"
+        },
+        {
+          "paragraaf": "7.2",
+          "href": "wickevoort-dossier.html#h-7-2-cruquius-wickevoort-2018-eclinlrvs2019330-6-februari-2019"
+        },
+        {
+          "paragraaf": "7.3",
+          "href": "wickevoort-dossier.html#h-7-3-csz-geschil-20202022-eclinlrvs2022558"
+        }
+      ]
+    },
+    {
+      "id": "haarlemmermeersche-golfclub",
+      "categorie": "organisatie-omwonende",
+      "naam": "Haarlemmermeersche Golfclub",
+      "rol": "Appellant Raad van State (2014, 2019) · direct aangrenzend eigenaar/erfpachter",
+      "locatie": "Spieringweg 745, 2142 ED Cruquius",
+      "lat": 52.3369,
+      "lon": 4.6436,
+      "periode": "beroepsprocedures 2013, 2018",
+      "urls": {
+        "_vermoeden_website": "https://www.hgcgolf.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "7.1",
+        "7.2",
+        "8.6"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "7.1",
+          "href": "wickevoort-dossier.html#h-7-1-cruquius-noord-2013-eclinlrvs2014xxxx"
+        },
+        {
+          "paragraaf": "7.2",
+          "href": "wickevoort-dossier.html#h-7-2-cruquius-wickevoort-2018-eclinlrvs2019330-6-februari-2019"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "groene-weelde",
+      "categorie": "organisatie-omwonende",
+      "naam": "De Groene Weelde B.V.",
+      "rol": "Appellant Raad van State (2014, 2019) · erfpachter aangrenzend natuurgebied",
+      "locatie": "Cruquius",
+      "lat": 52.3388,
+      "lon": 4.645,
+      "periode": "beroepsprocedures 2013, 2018",
+      "urls": {},
+      "vindplaats_in_dossier": [
+        "7.1",
+        "7.2",
+        "8.6"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "7.1",
+          "href": "wickevoort-dossier.html#h-7-1-cruquius-noord-2013-eclinlrvs2014xxxx"
+        },
+        {
+          "paragraaf": "7.2",
+          "href": "wickevoort-dossier.html#h-7-2-cruquius-wickevoort-2018-eclinlrvs2019330-6-februari-2019"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "la-vista",
+      "categorie": "organisatie-omwonende",
+      "naam": "VvE gebouwen 'la Vista' c.s.",
+      "rol": "Appellant Raad van State (2019) · omwonenden",
+      "locatie": "Cruquius",
+      "lat": 52.342,
+      "lon": 4.6385,
+      "periode": "beroepsprocedure 2018",
+      "urls": {},
+      "vindplaats_in_dossier": [
+        "7.2",
+        "8.6"
+      ],
+      "kernfeit": "Bezwaar richtte zich specifiek op heropenen woningbouw in zuidwestelijk plandeel — terwijl GS Noord-Holland in 1968 juist geen goedkeuring hadden gegeven",
+      "dossier_ankers": [
+        {
+          "paragraaf": "7.2",
+          "href": "wickevoort-dossier.html#h-7-2-cruquius-wickevoort-2018-eclinlrvs2019330-6-februari-2019"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "stadsboeren",
+      "categorie": "organisatie-deelnemer",
+      "naam": "Wickevoorter Stadsboeren (Hoeve Wickevoort)",
+      "rol": "Stadslandbouwinitiatief · 2,5+ hectare",
+      "locatie": "Oldenburgerlaan 2, Cruquius",
+      "lat": 52.3425,
+      "lon": 4.641,
+      "periode": "juli 2018 — heden",
+      "urls": {
+        "_vermoeden_website": "https://www.wickevoorterstadsboeren.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "5.2",
+        "8.6"
+      ],
+      "kernfeit": "Martin Verzijden (oud-personeelsplanner academisch ziekenhuis) + Ada · Warmonderhof-opleiding Veehouderij en Stadslandbouw",
+      "dossier_ankers": [
+        {
+          "paragraaf": "5.2",
+          "href": "wickevoort-dossier.html#h-5-2-stadsboerderij-en-voedselketen"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "chapeau",
+      "categorie": "organisatie-deelnemer",
+      "naam": "Chapeau Woonkring Haarlemmermeer",
+      "rol": "Ouderinitiatief psychisch kwetsbare volwassenen (20 zorgappartementen Hoofdgebouw)",
+      "locatie": "Wickevoort, Cruquius",
+      "lat": 52.3425,
+      "lon": 4.641,
+      "periode": "huurt bij Eigen Haard in Hoofdgebouw (2026)",
+      "urls": {
+        "website": "https://chapeau-wickevoort.nl"
+      },
+      "vindplaats_in_dossier": [
+        "8.3",
+        "8.6"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "bouwinvest",
+      "categorie": "organisatie-belegger",
+      "naam": "Bouwinvest",
+      "rol": "Beoogd belegger vrije-sector huur (niet gerealiseerd — 100 NOM-huur ging naar Pensioenfonds Rail & OV)",
+      "locatie": "La Guardiaweg 4, 1043 DG Amsterdam",
+      "lat": 52.3981,
+      "lon": 4.8374,
+      "periode": "tender 2014; niet meer in uitvoering 2021",
+      "urls": {
+        "website": "https://www.bouwinvest.nl"
+      },
+      "vindplaats_in_dossier": [
+        "4.3",
+        "8.3"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.3",
+          "href": "wickevoort-dossier.html#h-4-3-tender-en-selectie-am-eigen-haard-20112014"
+        },
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        }
+      ]
+    },
+    {
+      "id": "railov",
+      "categorie": "organisatie-belegger",
+      "naam": "Pensioenfonds Rail & Openbaar Vervoer",
+      "rol": "Belegger eerste 100 NOM-huurwoningen Wickevoort",
+      "locatie": "Utrecht",
+      "lat": 52.0833,
+      "lon": 5.1586,
+      "periode": "mei–juli 2021",
+      "urls": {
+        "_vermoeden_website": "https://www.spov.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "4.5",
+        "8.3"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.5",
+          "href": "wickevoort-dossier.html#h-4-5-deelgebieden-architecten-en-faseringen"
+        },
+        {
+          "paragraaf": "8.3",
+          "href": "wickevoort-dossier.html#h-8-3-eigen-haard-en-bouwinvest"
+        }
+      ]
+    },
+    {
+      "id": "paswerk",
+      "categorie": "organisatie-voorziening",
+      "naam": "Paswerk",
+      "rol": "Sociale werkplaats op terrein Wickevoort (bestemmingsplan 2018 gehandhaafd)",
+      "locatie": "Cruquius",
+      "lat": 52.342,
+      "lon": 4.64,
+      "periode": "doorlopend",
+      "urls": {
+        "website": "https://www.paswerk.nl"
+      },
+      "vindplaats_in_dossier": [
+        "4.4",
+        "8.6"
+      ],
+      "dossier_ankers": [
+        {
+          "paragraaf": "4.4",
+          "href": "wickevoort-dossier.html#h-4-4-bestemmingsplan-cruquius-wickevoort-2018-en-herzieningen"
+        },
+        {
+          "paragraaf": "8.6",
+          "href": "wickevoort-dossier.html#h-8-6-overige-stakeholders"
+        }
+      ]
+    },
+    {
+      "id": "waterlelie",
+      "categorie": "organisatie-voorziening",
+      "naam": "School De Waterlelie",
+      "rol": "Speciaal onderwijs op terrein SEIN",
+      "locatie": "Cruquius",
+      "lat": 52.3424,
+      "lon": 4.6415,
+      "periode": "doorlopend",
+      "urls": {
+        "_vermoeden_website": "https://www.waterlelie.nl"
+      },
+      "_vermoeden": true,
+      "vindplaats_in_dossier": [
+        "openstaande vraag 11"
+      ],
+      "dossier_ankers": []
+    },
+    {
+      "id": "christelijke-vereniging",
+      "categorie": "organisatie-historisch",
+      "naam": "Christelijke Vereniging voor de Verpleging van Lijders aan Vallende Ziekte",
+      "rol": "Rechtsvoorganger SEIN · nog steeds bestaande rechtspersoon",
+      "locatie": "Heemstede",
+      "lat": 52.3361,
+      "lon": 4.6194,
+      "periode": "26 januari 1882 — heden",
+      "urls": {},
+      "vindplaats_in_dossier": [
+        "2.2",
+        "4.1",
+        "8.1"
+      ],
+      "kernfeit": "Opgericht door Anna Teding van Berkhout · gedenkteken Heemsteedse begraafplaats onthuld 1 december 2014 · penningmeester 2014: Hans de Vries",
+      "dossier_ankers": [
+        {
+          "paragraaf": "2.2",
+          "href": "wickevoort-dossier.html#h-2-2-de-christelijk-diaconale-oorsprong-van-sein-18741966"
+        },
+        {
+          "paragraaf": "4.1",
+          "href": "wickevoort-dossier.html#h-4-1-eigenaarschap-van-de-grond"
+        },
+        {
+          "paragraaf": "8.1",
+          "href": "wickevoort-dossier.html#h-8-1-sein-raad-van-bestuur-vastgoed-en-adviseurs"
+        }
+      ]
+    },
+    {
+      "id": "epilepsienl",
+      "categorie": "organisatie-fonds",
+      "naam": "EpilepsieNL (voorheen Epilepsiefonds)",
+      "rol": "Landelijke patiëntenorganisatie · samenwerkingspartner SEIN",
+      "locatie": "Houten",
+      "lat": 52.0287,
+      "lon": 5.1682,
+      "periode": "samenwerking met SEIN doorlopend; memorandum 5 april 2024",
+      "urls": {
+        "website": "https://www.epilepsie.nl"
+      },
+      "vindplaats_in_dossier": [
+        "openstaande vraag 11"
+      ],
+      "dossier_ankers": []
+    },
+    {
+      "id": "kempenhaeghe",
+      "categorie": "organisatie-zorg",
+      "naam": "Kempenhaeghe",
+      "rol": "Tweede Nederlandse epilepsiecentrum · samenwerkingspartner SEIN sinds 2024",
+      "locatie": "Sterkselseweg 65, 5591 VE Heeze",
+      "lat": 51.3827,
+      "lon": 5.5989,
+      "periode": "memorandum 5 april 2024",
+      "urls": {
+        "website": "https://www.kempenhaeghe.nl",
+        "persbericht_memorandum": "https://www.kempenhaeghe.nl/nieuws/epilepsienl-kempenhaeghe-en-sein-bekrachtigen-samenwerking"
+      },
+      "vindplaats_in_dossier": [
+        "niet in dossier — contextueel toegevoegd"
+      ],
+      "dossier_ankers": []
+    }
+  ],
+  "relaties": [
+    {
+      "van": "barzilay",
+      "naar": "huikeshoven",
+      "type": "contractpartner",
+      "label": "Samenwerkingsovereenkomst 14 februari 2014",
+      "kleur": "#8B4513"
+    },
+    {
+      "van": "barzilay",
+      "naar": "slaager",
+      "type": "werkgever",
+      "label": "SEIN RvB — SEIN directie",
+      "kleur": "#333333"
+    },
+    {
+      "van": "huikeshoven",
+      "naar": "am-hoofdkantoor",
+      "type": "werkgever",
+      "label": "Directievoorzitter",
+      "kleur": "#333333"
+    },
+    {
+      "van": "am-hoofdkantoor",
+      "naar": "sein-hoofdkantoor",
+      "type": "contractpartner",
+      "label": "Gebiedsontwikkeling Wickevoort",
+      "kleur": "#8B4513"
+    },
+    {
+      "van": "eigen-haard-hoofdkantoor",
+      "naar": "sein-hoofdkantoor",
+      "type": "contractpartner",
+      "label": "Samenwerking 2014 — 255 sociale huur",
+      "kleur": "#8B4513"
+    },
+    {
+      "van": "sein-hoofdkantoor",
+      "naar": "sein-cruquius",
+      "type": "eigenaar",
+      "label": "Grondeigendom ca. 57 ha",
+      "kleur": "#2E7D32"
+    },
+    {
+      "van": "venhoeven",
+      "naar": "venhoevencs",
+      "type": "werkgever",
+      "label": "Oprichter",
+      "kleur": "#333333"
+    },
+    {
+      "van": "venhoevencs",
+      "naar": "sein-cruquius",
+      "type": "ontwerper",
+      "label": "Masterplan 2009 + supervisor",
+      "kleur": "#1976D2"
+    },
+    {
+      "van": "am-hoofdkantoor",
+      "naar": "venhoevencs",
+      "type": "opdrachtgever",
+      "label": "Masterplan Wickevoort",
+      "kleur": "#8B4513"
+    },
+    {
+      "van": "wentink",
+      "naar": "sein-cruquius",
+      "type": "ontwerper",
+      "label": "SEIN-nieuwbouw 2010 (BAM-persbericht 2008)",
+      "kleur": "#1976D2"
+    },
+    {
+      "van": "studiowa",
+      "naar": "sein-cruquius",
+      "type": "ontwerper",
+      "label": "SEIN-nieuwbouw 2010 (dossier)",
+      "kleur": "#1976D2"
+    },
+    {
+      "van": "finch-buildings",
+      "naar": "sein-cruquius",
+      "type": "ontwerper",
+      "label": "SEIN Special 2024 (houtbouw)",
+      "kleur": "#1976D2"
+    },
+    {
+      "van": "korth-tielens",
+      "naar": "sein-cruquius",
+      "type": "ontwerper",
+      "label": "Hoofdgebouw 2025–2026",
+      "kleur": "#1976D2"
+    },
+    {
+      "van": "at-osborne",
+      "naar": "sein-hoofdkantoor",
+      "type": "adviseur",
+      "label": "Procesbegeleiding tender en KRO",
+      "kleur": "#FFA000"
+    },
+    {
+      "van": "at-osborne",
+      "naar": "am-hoofdkantoor",
+      "type": "adviseur",
+      "label": "Procesbegeleiding KRO",
+      "kleur": "#FFA000"
+    },
+    {
+      "van": "haarlemmermeer",
+      "naar": "sein-cruquius",
+      "type": "bevoegd_gezag",
+      "label": "Bestemmingsplan + Nota van Uitgangspunten",
+      "kleur": "#7B1FA2"
+    },
+    {
+      "van": "nobel",
+      "naar": "haarlemmermeer",
+      "type": "werkgever",
+      "label": "Wethouder tot 2 juli 2024",
+      "kleur": "#333333"
+    },
+    {
+      "van": "van-straten",
+      "naar": "haarlemmermeer",
+      "type": "werkgever",
+      "label": "Wethouder sinds 4 juli 2024",
+      "kleur": "#333333"
+    },
+    {
+      "van": "csz",
+      "naar": "sein-hoofdkantoor",
+      "type": "toezicht",
+      "label": "Meldplicht vervreemding zorgvastgoed (sinds sept. 1999)",
+      "kleur": "#C62828"
+    },
+    {
+      "van": "csz",
+      "naar": "am-hoofdkantoor",
+      "type": "toezicht",
+      "label": "Weigert KRO-goedkeuring 14 jan. 2020",
+      "kleur": "#C62828"
+    },
+    {
+      "van": "rvs",
+      "naar": "csz",
+      "type": "rechter",
+      "label": "Uitspraak 23 februari 2022: CSZ onvoldoende gemotiveerd",
+      "kleur": "#C62828"
+    },
+    {
+      "van": "rvs",
+      "naar": "haarlemmermeer",
+      "type": "rechter",
+      "label": "Uitspraak 6 februari 2019: beroepen ongegrond",
+      "kleur": "#C62828"
+    },
+    {
+      "van": "haarlemmermeersche-golfclub",
+      "naar": "rvs",
+      "type": "appellant",
+      "label": "Beroep 2013 + 2018",
+      "kleur": "#E65100"
+    },
+    {
+      "van": "groene-weelde",
+      "naar": "rvs",
+      "type": "appellant",
+      "label": "Beroep 2013 + 2018",
+      "kleur": "#E65100"
+    },
+    {
+      "van": "la-vista",
+      "naar": "rvs",
+      "type": "appellant",
+      "label": "Beroep 2018",
+      "kleur": "#E65100"
+    },
+    {
+      "van": "christelijke-vereniging",
+      "naar": "sein-hoofdkantoor",
+      "type": "rechtsvoorganger",
+      "label": "Opgericht 26 januari 1882",
+      "kleur": "#6A1B9A"
+    },
+    {
+      "van": "chapeau",
+      "naar": "eigen-haard-hoofdkantoor",
+      "type": "huurder",
+      "label": "20 zorgappartementen Hoofdgebouw",
+      "kleur": "#2E7D32"
+    },
+    {
+      "van": "railov",
+      "naar": "am-hoofdkantoor",
+      "type": "belegger",
+      "label": "Afnemer 100 NOM-huurwoningen 2021",
+      "kleur": "#2E7D32"
+    },
+    {
+      "van": "bouwinvest",
+      "naar": "am-hoofdkantoor",
+      "type": "beoogd_belegger",
+      "label": "Oorspronkelijk beoogd, niet gerealiseerd",
+      "kleur": "#9E9E9E"
+    },
+    {
+      "van": "stadsboeren",
+      "naar": "sein-cruquius",
+      "type": "deelnemer",
+      "label": "Hoeve Wickevoort sinds juli 2018",
+      "kleur": "#2E7D32"
+    },
+    {
+      "van": "kempenhaeghe",
+      "naar": "sein-hoofdkantoor",
+      "type": "samenwerkingspartner",
+      "label": "Memorandum 5 april 2024",
+      "kleur": "#2E7D32"
+    },
+    {
+      "van": "epilepsienl",
+      "naar": "sein-hoofdkantoor",
+      "type": "samenwerkingspartner",
+      "label": "Memorandum 5 april 2024",
+      "kleur": "#2E7D32"
+    }
+  ],
+  "legenda_relatietypes": {
+    "contractpartner": "bruine lijn · zakelijk contract",
+    "werkgever": "zwart · dienstverband / bestuur",
+    "eigenaar": "groen · juridisch eigendom",
+    "ontwerper": "blauw · architectuur/landschap",
+    "opdrachtgever": "bruin · commissie",
+    "adviseur": "oranje · procesbegeleiding",
+    "bevoegd_gezag": "paars · overheidstoezicht / plan",
+    "toezicht": "rood · wettelijk toezicht",
+    "rechter": "rood · bestuursrechtspraak",
+    "appellant": "oranje-rood · beroepsprocedure",
+    "rechtsvoorganger": "donkerpaars · historische lijn",
+    "huurder": "groen · huurrelatie",
+    "belegger": "groen · eigendom vastgoed na aankoop",
+    "beoogd_belegger": "grijs · niet gerealiseerd",
+    "deelnemer": "groen · inhoudelijke bijdrage aan programma",
+    "samenwerkingspartner": "groen · intentieovereenkomst / memorandum"
+  }
+}
