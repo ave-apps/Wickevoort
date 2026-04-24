@@ -493,6 +493,10 @@ STEDEN.forEach(s => {
 // ================================================================
 const pinGrp = new THREE.Group();
 wrapper.add(pinGrp);
+const clusterGrp = new THREE.Group(); // Cluster-bolletjes (niet-roterend met de bol)
+wrapper.add(clusterGrp);
+const rozetGrp = new THREE.Group(); // Uitgevouwen rozet-pins (kopieën met offset)
+wrapper.add(rozetGrp);
 const boogGrp = new THREE.Group();
 wrapper.add(boogGrp);
 const pins3D = [];
@@ -501,6 +505,11 @@ const ankers = [];
 let DATA = {pins:[], relaties:[], legenda_relatietypes:{}};
 let activeRelPins = new Set(); // pins met zichtbare relaties (dubbelklik toggle)
 let alleRelatiesAan = false;
+
+// Cluster-state
+let clusterSprites = [];        // huidige cluster-bolletjes in clusterGrp
+let openCluster = null;          // {sprites: [pins], centerSprite: sprite} of null
+let openClusterFixed = false;    // true bij klik (blijft open), false bij hover (sluit bij muis weg)
 
 // Kleurbepaling op basis van categorie
 function pinKleur(cat) {
@@ -532,45 +541,25 @@ function bouwPins() {
   pins3D.length = 0;
   ankers.length = 0;
 
-  // Detecteer pins met (vrijwel) identieke coördinaten en geef ze micro-offsets
-  // zodat ze niet exact overlappen op het Cruquius-zoomniveau.
-  const coordGroepen = {};
-  DATA.pins.forEach(pin => {
-    const key = `${pin.lat.toFixed(4)},${pin.lon.toFixed(4)}`;
-    if (!coordGroepen[key]) coordGroepen[key] = [];
-    coordGroepen[key].push(pin);
-  });
+  // Pins worden in originele coördinaten geplaatst; cluster-detectie gebeurt
+  // per frame op schermafstand (zie animatieloop).
   const pinOffset = {};
-  Object.values(coordGroepen).forEach(groep => {
-    if (groep.length === 1) return;
-    // Verdeel pins op een kleine cirkel rond hun gemeenschappelijke punt
-    const r = 0.00012; // ~13 meter
-    groep.forEach((pin, i) => {
-      const hoek = (i / groep.length) * Math.PI * 2;
-      pinOffset[pin.id] = {
-        dlat: Math.cos(hoek) * r,
-        dlon: Math.sin(hoek) * r / Math.cos(pin.lat * Math.PI / 180),
-      };
-    });
-  });
 
   // Maak één canvas-texture per kleur (cache) — pin = gekleurde cirkel met dunne donkere outline
   const pinTextures = {};
   function makePinTexture(hexColor) {
     if (pinTextures[hexColor]) return pinTextures[hexColor];
-    const size = 64; // texture-resolutie (geen schermgrootte; die wordt door sprite scale bepaald)
+    const size = 64;
     const cv = document.createElement('canvas');
     cv.width = cv.height = size;
     const cx = cv.getContext('2d');
     const c = size / 2;
-    // Gekleurde fill
     cx.fillStyle = '#' + hexColor.toString(16).padStart(6, '0');
     cx.beginPath();
     cx.arc(c, c, size * 0.42, 0, Math.PI * 2);
     cx.fill();
-    // Dunne donkere outline
     cx.strokeStyle = '#0a0a0a';
-    cx.lineWidth = size * 0.06; // ~1.5px op een 30px sprite
+    cx.lineWidth = size * 0.06;
     cx.beginPath();
     cx.arc(c, c, size * 0.42, 0, Math.PI * 2);
     cx.stroke();
@@ -581,14 +570,62 @@ function bouwPins() {
     return tex;
   }
 
+  // Cluster-donut-texture cache: key = "kleur1-aantal1_kleur2-aantal2_..."
+  // De gesegmenteerde donut toont de verdeling van categoriekleuren binnen het cluster.
+  const clusterTextures = {};
+  function makeClusterTexture(segmenten, totaal) {
+    // segmenten = [{kleur:0xXXXXXX, aantal:n}, ...]
+    const key = segmenten.map(s => `${s.kleur.toString(16)}-${s.aantal}`).join('_');
+    if (clusterTextures[key]) return clusterTextures[key];
+    const size = 128;
+    const cv = document.createElement('canvas');
+    cv.width = cv.height = size;
+    const cx = cv.getContext('2d');
+    const c = size / 2;
+    const rOut = size * 0.46;
+    const rIn = size * 0.30;
+
+    // Donut-segmenten
+    let hoek0 = -Math.PI / 2;
+    segmenten.forEach(seg => {
+      const dHoek = (seg.aantal / totaal) * Math.PI * 2;
+      cx.fillStyle = '#' + seg.kleur.toString(16).padStart(6, '0');
+      cx.beginPath();
+      cx.arc(c, c, rOut, hoek0, hoek0 + dHoek);
+      cx.arc(c, c, rIn, hoek0 + dHoek, hoek0, true);
+      cx.closePath();
+      cx.fill();
+      hoek0 += dHoek;
+    });
+
+    // Donkere outline om geheel
+    cx.strokeStyle = '#0a0a0a';
+    cx.lineWidth = size * 0.04;
+    cx.beginPath();
+    cx.arc(c, c, rOut, 0, Math.PI * 2);
+    cx.stroke();
+    cx.beginPath();
+    cx.arc(c, c, rIn, 0, Math.PI * 2);
+    cx.stroke();
+
+    // Aantal in het midden
+    cx.fillStyle = '#fafaf7';
+    cx.font = `bold ${size * 0.32}px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif`;
+    cx.textAlign = 'center';
+    cx.textBaseline = 'middle';
+    cx.fillText(totaal.toString(), c, c + 1);
+
+    const tex = new THREE.CanvasTexture(cv);
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    clusterTextures[key] = tex;
+    return tex;
+  }
+
   DATA.pins.forEach(pin => {
     const kl = pinKleur(pin.categorie);
-    const off = pinOffset[pin.id];
-    const lat = pin.lat + (off ? off.dlat : 0);
-    const lon = pin.lon + (off ? off.dlon : 0);
-    const p = latLon2Bol(lat, lon).multiplyScalar((R+0.020)/R);
+    const p = latLon2Bol(pin.lat, pin.lon).multiplyScalar((R+0.020)/R);
 
-    // Sprite — altijd naar camera gericht, pixelgrootte (vrijwel) onafhankelijk van zoom
     const mat = new THREE.SpriteMaterial({
       map: makePinTexture(kl),
       transparent: true,
@@ -596,12 +633,15 @@ function bouwPins() {
     });
     const sprite = new THREE.Sprite(mat);
     sprite.position.copy(p);
-    // Sprite-scale in wereldcoördinaten: klein houden zodat pin ~10-12 pixels blijft
     sprite.scale.set(0.018, 0.018, 1);
-    sprite.userData = {pin, kl};
+    sprite.userData = {pin, kl, basisPos: p.clone()};
     pinGrp.add(sprite);
     pins3D.push(sprite);
   });
+
+  // Maak ook clusterTextures globaal beschikbaar voor de animatieloop
+  window._clusterTextures = clusterTextures;
+  window._makeClusterTexture = makeClusterTexture;
 
   // Bouw relatiebogen (allemaal, maar verborgen)
   bouwRelaties();
@@ -908,24 +948,55 @@ function chkHover(cx, cy) {
   ndc(cx, cy); rc.setFromCamera(mn, camera);
   const visibleAnkers = ankers.filter(a => a.visible);
   const visibleLijnen = boogGrp.children.filter(c => c.userData.isBoog && c.visible);
-  const hits = rc.intersectObjects([...pins3D, ...visibleAnkers, ...visibleLijnen]);
+  const visiblePins = pins3D.filter(p => p.visible);
+  const rozetPins = rozetGrp.children;
+  const hits = rc.intersectObjects([
+    ...visiblePins, ...rozetPins, ...clusterSprites,
+    ...visibleAnkers, ...visibleLijnen
+  ]);
 
   // Reset lijn-highlight
   visibleLijnen.forEach(l => { l.material.opacity = 0.35; });
 
   hovPin = null;
+  hovCluster = null;
   canvas.style.cursor = 'default';
   document.getElementById('btip').classList.remove('on');
 
+  // Auto-sluit rozet als muis er niet meer in zit (alleen als niet vastgeklikt)
+  if (openCluster && !openClusterFixed) {
+    const overCluster = hits.length && (
+      hits[0].object === openCluster.clusterSprite ||
+      rozetGrp.children.includes(hits[0].object)
+    );
+    if (!overCluster) {
+      sluitCluster();
+    }
+  }
+
   if (!hits.length) return;
   const h = hits[0].object;
-  if (h.userData.pin) {
+  if (h.userData.isCluster) {
+    hovCluster = h;
+    canvas.style.cursor = 'pointer';
+    // Open rozet als hover-preview (niet fixed)
+    if (!openCluster || openCluster.clusterSprite !== h) {
+      openClusterRozet(h, false);
+    }
+    // Tooltip: aantal + categorie-overzicht
+    const bt = document.getElementById('btip');
+    const namen = h.userData.pins.map(p => p.naam).join('<br>');
+    bt.innerHTML = `<strong>${h.userData.pins.length} pins op deze plek:</strong><br><span style="color:#8a9ab4;font-size:.7rem">${namen}</span>`;
+    const r = canvas.getBoundingClientRect();
+    bt.style.left = Math.min(cx+14, r.width-280)+'px';
+    bt.style.top = Math.max(cy-70, 6)+'px';
+    bt.classList.add('on');
+  } else if (h.userData.pin) {
     hovPin = h;
     canvas.style.cursor = 'pointer';
     toonTooltip(cx, cy, h.userData.pin);
   } else if (h.userData.isBoogAnker || h.userData.isBoog) {
     canvas.style.cursor = 'pointer';
-    // Highlight de lijn zelf (niet het onzichtbare anker)
     const lijn = h.userData.isBoog ? h : h.userData.lijn;
     if (lijn) lijn.material.opacity = 0.85;
     const bt = document.getElementById('btip');
@@ -959,14 +1030,27 @@ function handleTap(cx, cy) {
     document.getElementById('hint').classList.add('hide');
     return;
   }
-  // Raycaster
+  // Raycaster — incl. clusters en rozet-pins
   ndc(cx, cy); rc.setFromCamera(mn, camera);
   const visibleAnkers = ankers.filter(a => a.visible);
-  const hits = rc.intersectObjects([...pins3D, ...visibleAnkers]);
-  if (!hits.length) { sluitPanel(); return; }
+  const visiblePins = pins3D.filter(p => p.visible);
+  const hits = rc.intersectObjects([
+    ...visiblePins, ...rozetGrp.children, ...clusterSprites, ...visibleAnkers
+  ]);
+  if (!hits.length) {
+    if (openCluster) sluitCluster();
+    sluitPanel();
+    return;
+  }
   const h = hits[0].object;
-  if (h.userData.pin) {
+  if (h.userData.isCluster) {
+    // Cluster aangeklikt — vast openzetten
+    openClusterRozet(h, true);
+    document.getElementById('hint').classList.add('hide');
+  } else if (h.userData.pin) {
     openPinPanel(h.userData.pin);
+    // Als we op een rozet-pin klikken, mag het rozet open blijven (kan handig zijn om nog meer te bekijken)
+    document.getElementById('hint').classList.add('hide');
   } else if (h.userData.isBoogAnker) {
     openRelatiePanel(h.userData.rel, h.userData.vPin, h.userData.nPin);
   }
@@ -1136,6 +1220,207 @@ function togAlleRelaties() {
 }
 
 // ================================================================
+// CLUSTERING
+// ================================================================
+let hovCluster = null; // welke cluster-sprite is gehoverd
+const CLUSTER_DREMPEL_PX = 40;
+const ROZET_RADIUS_PX = 38;
+
+// Bereken schermpositie van een 3D-punt; geeft null als achter de bol/buiten beeld
+function projecteerNaarScherm(pos3D) {
+  const wp = pos3D.clone();
+  // Eerst rotaties toepassen (zoals wrapper)
+  wp.applyMatrix4(wrapper.matrixWorld);
+  // Check of zichtbaar (niet aan andere kant van bol)
+  const camDir = camera.position.clone().sub(wp).normalize();
+  const norm = wp.clone().normalize();
+  if (norm.dot(camDir) < 0.10) return null;
+  // Project naar NDC
+  const proj = wp.clone().project(camera);
+  if (proj.z > 1.0) return null;
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  return {
+    x: (proj.x * 0.5 + 0.5) * w,
+    y: (-proj.y * 0.5 + 0.5) * h,
+    pos3D: wp,
+  };
+}
+
+function updateClusters() {
+  // Stap 1: bereken schermpositie van elke pin
+  const items = [];
+  pins3D.forEach(sprite => {
+    const sp = projecteerNaarScherm(sprite.userData.basisPos);
+    if (sp) items.push({sprite, ...sp});
+  });
+
+  // Stap 2: greedy clustering — voor elke pin, vind of groepeer met dichtbij liggende
+  const groepen = [];
+  const inGroep = new Set();
+  for (let i = 0; i < items.length; i++) {
+    if (inGroep.has(items[i].sprite)) continue;
+    const groep = [items[i]];
+    inGroep.add(items[i].sprite);
+    for (let j = i + 1; j < items.length; j++) {
+      if (inGroep.has(items[j].sprite)) continue;
+      // Check afstand tot enige item in deze groep
+      const dichtbij = groep.some(g => {
+        const dx = g.x - items[j].x, dy = g.y - items[j].y;
+        return dx*dx + dy*dy < CLUSTER_DREMPEL_PX * CLUSTER_DREMPEL_PX;
+      });
+      if (dichtbij) {
+        groep.push(items[j]);
+        inGroep.add(items[j].sprite);
+      }
+    }
+    groepen.push(groep);
+  }
+
+  // Stap 3: bepaal welke pins zichtbaar moeten zijn (solo) en welke cluster-bolletjes te tonen
+  const wensClusters = []; // [{centerPos3D, sprites:[pin-sprites], segmenten}]
+  const soloSprites = new Set();
+  groepen.forEach(g => {
+    if (g.length === 1) {
+      soloSprites.add(g[0].sprite);
+    } else {
+      // Centrum: gemiddelde 3D-positie
+      const center = new THREE.Vector3();
+      g.forEach(item => center.add(item.sprite.userData.basisPos));
+      center.divideScalar(g.length);
+      // Categorie-segmenten
+      const telling = {};
+      g.forEach(item => {
+        const kl = item.sprite.userData.kl;
+        telling[kl] = (telling[kl] || 0) + 1;
+      });
+      const segmenten = Object.entries(telling).map(([k, n]) => ({
+        kleur: parseInt(k), aantal: n,
+      })).sort((a, b) => b.aantal - a.aantal);
+      wensClusters.push({
+        center,
+        spritePins: g.map(item => item.sprite),
+        segmenten,
+        totaal: g.length,
+      });
+    }
+  });
+
+  // Stap 4: pin-zichtbaarheid bijwerken
+  pins3D.forEach(s => { s.visible = soloSprites.has(s); });
+
+  // Stap 5: cluster-sprites synchroniseren met wensClusters
+  // Eerst alles wissen — clusters herberekenen elke frame is goedkoop
+  while (clusterGrp.children.length) {
+    const c = clusterGrp.children[0];
+    if (c.material.map && c.userData.tempTexture) c.material.map.dispose();
+    clusterGrp.remove(c);
+  }
+  clusterSprites = [];
+
+  wensClusters.forEach(wc => {
+    const tex = window._makeClusterTexture(wc.segmenten, wc.totaal);
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
+    const sprite = new THREE.Sprite(mat);
+    sprite.position.copy(wc.center);
+    sprite.userData = {
+      isCluster: true,
+      spritePins: wc.spritePins,
+      pins: wc.spritePins.map(s => s.userData.pin),
+    };
+    clusterGrp.add(sprite);
+    clusterSprites.push(sprite);
+  });
+
+  // Stap 6: open-cluster valideren — als de cluster waar het rozet uit kwam niet meer bestaat, sluiten
+  if (openCluster) {
+    // Zoek of dezelfde set pins nog steeds een cluster vormt
+    const nogSteedsCluster = wensClusters.find(wc =>
+      wc.spritePins.length === openCluster.spritePins.length &&
+      wc.spritePins.every(sp => openCluster.spritePins.includes(sp))
+    );
+    if (nogSteedsCluster) {
+      // Update centerPos in geval van rotatie
+      openCluster.center = nogSteedsCluster.center;
+      // Update rozet-posities (camera kan zijn bewogen)
+      updateRozetPosities();
+    } else {
+      sluitCluster();
+    }
+  }
+}
+
+function openClusterRozet(clusterSprite, fixed) {
+  // Sluit eerst eventuele bestaande open cluster
+  if (openCluster && openCluster.clusterSprite !== clusterSprite) {
+    sluitCluster();
+  }
+  openCluster = {
+    clusterSprite,
+    spritePins: clusterSprite.userData.spritePins,
+    center: clusterSprite.position.clone(),
+  };
+  openClusterFixed = !!fixed;
+
+  // Maak rozet-kopieën van de pins, posities worden in updateRozetPosities gezet
+  while (rozetGrp.children.length) rozetGrp.remove(rozetGrp.children[0]);
+  openCluster.spritePins.forEach(origPin => {
+    const mat = new THREE.SpriteMaterial({
+      map: origPin.material.map,
+      transparent: true,
+      depthWrite: false,
+    });
+    const s = new THREE.Sprite(mat);
+    s.userData = {
+      pin: origPin.userData.pin,
+      kl: origPin.userData.kl,
+      isRozet: true,
+      origSprite: origPin,
+    };
+    rozetGrp.add(s);
+  });
+  updateRozetPosities();
+
+  // Verberg de individuele pins die in dit cluster zitten (ze zijn nu in het rozet)
+  // Eigenlijk al verborgen door updateClusters, maar voor de zekerheid
+  openCluster.spritePins.forEach(s => { s.visible = false; });
+}
+
+function updateRozetPosities() {
+  if (!openCluster) return;
+  const center = openCluster.center;
+  // Project center naar scherm voor schaalbepaling
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  const cwp = center.clone();
+  cwp.applyMatrix4(wrapper.matrixWorld);
+  const cproj = cwp.clone().project(camera);
+  const cx = (cproj.x * 0.5 + 0.5) * w;
+  const cy = (-cproj.y * 0.5 + 0.5) * h;
+
+  // Bereken rozet-pin posities op het scherm (cirkel rond center)
+  const N = rozetGrp.children.length;
+  rozetGrp.children.forEach((s, i) => {
+    const hoek = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const sx = cx + Math.cos(hoek) * ROZET_RADIUS_PX;
+    const sy = cy + Math.sin(hoek) * ROZET_RADIUS_PX;
+    // Unproject schermpositie terug naar 3D
+    const ndcX = (sx / w) * 2 - 1;
+    const ndcY = -(sy / h) * 2 + 1;
+    const ndcVec = new THREE.Vector3(ndcX, ndcY, cproj.z);
+    ndcVec.unproject(camera);
+    // Terug naar wrapper-lokale coördinaten
+    ndcVec.applyMatrix4(new THREE.Matrix4().copy(wrapper.matrixWorld).invert());
+    s.position.copy(ndcVec);
+  });
+}
+
+function sluitCluster() {
+  if (!openCluster) return;
+  while (rozetGrp.children.length) rozetGrp.remove(rozetGrp.children[0]);
+  openCluster = null;
+  openClusterFixed = false;
+}
+
+// ================================================================
 // RESIZE
 // ================================================================
 function resize() {
@@ -1162,9 +1447,24 @@ function anim() {
   updZI(camera.position.z);
   herteken();
 
+  // Cluster-detectie: groepeer pins die op het scherm binnen 40 pixels van elkaar liggen
+  updateClusters();
+
   const ps = pinSchaal();
-  const baseScale = 0.018; // basisgrootte in wereldcoördinaten
-  pinGrp.children.forEach(obj => {
+  const baseScale = 0.018;
+  pins3D.forEach(obj => {
+    const isHov = obj === hovPin || obj === gesPin;
+    const f = ps * baseScale * (isHov ? 1.35 : 1);
+    obj.scale.set(f, f, 1);
+  });
+  // Cluster-bolletjes iets groter dan reguliere pins
+  clusterSprites.forEach(c => {
+    const isHov = c === hovCluster;
+    const f = ps * baseScale * 1.6 * (isHov ? 1.15 : 1);
+    c.scale.set(f, f, 1);
+  });
+  // Rozet-pins zelfde grootte als reguliere pins
+  rozetGrp.children.forEach(obj => {
     if (obj.isSprite) {
       const isHov = obj === hovPin || obj === gesPin;
       const f = ps * baseScale * (isHov ? 1.35 : 1);
