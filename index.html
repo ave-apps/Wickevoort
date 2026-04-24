@@ -532,24 +532,51 @@ function bouwPins() {
   pins3D.length = 0;
   ankers.length = 0;
 
+  // Detecteer pins met (vrijwel) identieke coördinaten en geef ze micro-offsets
+  // zodat ze niet exact overlappen op het Cruquius-zoomniveau.
+  const coordGroepen = {};
+  DATA.pins.forEach(pin => {
+    const key = `${pin.lat.toFixed(4)},${pin.lon.toFixed(4)}`;
+    if (!coordGroepen[key]) coordGroepen[key] = [];
+    coordGroepen[key].push(pin);
+  });
+  const pinOffset = {};
+  Object.values(coordGroepen).forEach(groep => {
+    if (groep.length === 1) return;
+    // Verdeel pins op een kleine cirkel rond hun gemeenschappelijke punt
+    const r = 0.00012; // ~13 meter
+    groep.forEach((pin, i) => {
+      const hoek = (i / groep.length) * Math.PI * 2;
+      pinOffset[pin.id] = {
+        dlat: Math.cos(hoek) * r,
+        dlon: Math.sin(hoek) * r / Math.cos(pin.lat * Math.PI / 180),
+      };
+    });
+  });
+
   DATA.pins.forEach(pin => {
     const kl = pinKleur(pin.categorie);
-    const p = latLon2Bol(pin.lat, pin.lon).multiplyScalar((R+0.025)/R);
+    const off = pinOffset[pin.id];
+    const lat = pin.lat + (off ? off.dlat : 0);
+    const lon = pin.lon + (off ? off.dlon : 0);
+    const p = latLon2Bol(lat, lon).multiplyScalar((R+0.025)/R);
 
-    // Vlakke map-marker: witte outline-ring + gekleurde fill-disc, tangent aan bol
+    // Vlakke map-marker: kleine gekleurde disc met dunne donkere outline, tangent aan bol
     const g = new THREE.Group();
     g.position.copy(p);
     g.lookAt(p.clone().multiplyScalar(2));
     g.userData = {pin, kl, isPinGroup:true};
 
+    // Dunne donkere outline (iets groter, eronder)
     const outline = new THREE.Mesh(
-      new THREE.RingGeometry(0.0076, 0.0108, 32),
-      new THREE.MeshBasicMaterial({color:0xffffff, side:THREE.DoubleSide})
+      new THREE.CircleGeometry(0.0058, 24),
+      new THREE.MeshBasicMaterial({color:0x0a0a0a, side:THREE.DoubleSide})
     );
+    outline.position.z = -0.00005;
     g.add(outline);
 
     const fill = new THREE.Mesh(
-      new THREE.CircleGeometry(0.0076, 32),
+      new THREE.CircleGeometry(0.0050, 24),
       new THREE.MeshBasicMaterial({color:kl, side:THREE.DoubleSide})
     );
     fill.userData = {pin, kl};
@@ -588,16 +615,20 @@ function bouwRelaties() {
     lijn.visible = false;
     boogGrp.add(lijn);
 
-    // Anker voor tooltip
-    const a = new THREE.Mesh(
-      new THREE.SphereGeometry(0.006, 8, 8),
-      new THREE.MeshBasicMaterial({color:kleur, transparent:true, opacity:0.15})
-    );
-    a.position.copy(curve.getPoint(0.35));
-    a.userData = {isBoogAnker:true, rel, vPin, nPin};
-    a.visible = false;
-    boogGrp.add(a);
-    ankers.push(a);
+    // Meerdere onzichtbare ankers verspreid langs de boog, zodat hover op vrijwel
+    // elk punt van de lijn wordt gedetecteerd (niet alleen op het hoogste punt).
+    const ankerPosities = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+    ankerPosities.forEach(t => {
+      const a = new THREE.Mesh(
+        new THREE.SphereGeometry(0.006, 8, 8),
+        new THREE.MeshBasicMaterial({color:kleur, transparent:true, opacity:0})
+      );
+      a.position.copy(curve.getPoint(t));
+      a.userData = {isBoogAnker:true, rel, vPin, nPin, lijn};
+      a.visible = false;
+      boogGrp.add(a);
+      ankers.push(a);
+    });
   });
 
   updateRelatieZichtbaarheid();
@@ -672,9 +703,10 @@ function labelSchaal() {
     lijnLw: 0.4 + s * 0.8,
     offset: Math.round(12 + s * 8),
     woorden: s < 0.25 ? 2 : s < 0.6 ? 3 : 99,
-    zichtbaar: cz < 2.75,
+    // Pin-labels alleen op Cruquius-niveau (heel dichtbij). Op regio/nationaal: hover only.
+    zichtbaar: cz < 1.65,
     stadZichtbaar: cz < 2.35,
-    alpha: Math.max(0, Math.min(1, (2.75 - cz) / 0.4)),
+    alpha: Math.max(0, Math.min(1, (1.65 - cz) / 0.25)),
     alphaStad: Math.max(0, Math.min(1, (2.35 - cz) / 0.3)),
     borderAlpha: Math.round((0.30 + s * 0.40) * 255).toString(16).padStart(2,'0'),
   };
@@ -831,6 +863,8 @@ function pDist(e) {
 }
 
 const rc = new THREE.Raycaster();
+rc.params.Line = rc.params.Line || {};
+rc.params.Line.threshold = 0.005;
 const mn = new THREE.Vector2();
 let hovPin = null;
 
@@ -854,7 +888,11 @@ function chkHover(cx, cy) {
 
   ndc(cx, cy); rc.setFromCamera(mn, camera);
   const visibleAnkers = ankers.filter(a => a.visible);
-  const hits = rc.intersectObjects([...pins3D, ...visibleAnkers]);
+  const visibleLijnen = boogGrp.children.filter(c => c.userData.isBoog && c.visible);
+  const hits = rc.intersectObjects([...pins3D, ...visibleAnkers, ...visibleLijnen]);
+
+  // Reset lijn-highlight
+  visibleLijnen.forEach(l => { l.material.opacity = 0.35; });
 
   hovPin = null;
   canvas.style.cursor = 'default';
@@ -866,12 +904,16 @@ function chkHover(cx, cy) {
     hovPin = h;
     canvas.style.cursor = 'pointer';
     toonTooltip(cx, cy, h.userData.pin);
-  } else if (h.userData.isBoogAnker) {
-    h.material.opacity = 0.80;
+  } else if (h.userData.isBoogAnker || h.userData.isBoog) {
     canvas.style.cursor = 'pointer';
+    // Highlight de lijn zelf (niet het onzichtbare anker)
+    const lijn = h.userData.isBoog ? h : h.userData.lijn;
+    if (lijn) lijn.material.opacity = 0.85;
     const bt = document.getElementById('btip');
     const rel = h.userData.rel;
-    bt.innerHTML = `<strong>${h.userData.vPin.naam}</strong><br>&#8596; <strong>${h.userData.nPin.naam}</strong><br><span style="color:#8a9ab4;font-size:.63rem">${rel.label}</span>`;
+    const vPin = h.userData.vPin || DATA.pins.find(p => p.id === rel.van);
+    const nPin = h.userData.nPin || DATA.pins.find(p => p.id === rel.naar);
+    bt.innerHTML = `<strong>${vPin.naam}</strong><br>&#8596; <strong>${nPin.naam}</strong><br><span style="color:#8a9ab4;font-size:.63rem">${rel.label}</span>`;
     const r = canvas.getBoundingClientRect();
     bt.style.left = Math.min(cx+12, r.width-270)+'px';
     bt.style.top = Math.max(cy-70, 6)+'px';
